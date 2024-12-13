@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Stock } from './stock';
 
 
@@ -7,22 +6,29 @@ import { Stock } from './stock';
   providedIn: 'root'
 })
 export class StocksService {
-  url = 'https://jsonplaceholder.typicode.com/posts'
+  url = 'https://finnhub.io/api/v1'
+  API_KEY = 'ct86vhhr01qtkv5rnrogct86vhhr01qtkv5rnrp0'
 
   constructor(
   ) {}
 
-  // public getAllUSStocks() {
-  //   this.http.get<Stock>('https://jsonplaceholder.typicode.com/posts');
-  // }
-  async getAllPosts() : Promise<Stock[]> {
-    const data = await fetch(this.url);
-    return await data.json() ?? [];
+  async getAllUSStocks() {
+    const data = await fetch(this.url)
   }
 
-  async getPostById(id: number) : Promise<Stock> {
-    const data = await fetch(`${this.url}/${id}`)
-    
-    return await data.json() ?? {}
+  async getAppleStockInfo() {
+    const data = await fetch(`${this.url}/quote?symbol=AAPL&token=${this.API_KEY}`);
+    return await data.json()
   }
+
+  // async getAllPosts() : Promise<Stock[]> {
+  //   const data = await fetch(this.url);
+  //   return await data.json() ?? [];
+  // }
+
+  // async getPostById(id: number) : Promise<Stock> {
+  //   const data = await fetch(`${this.url}/${id}`)
+    
+  //   return await data.json() ?? {}
+  // }
 }

@@ -11,13 +11,13 @@ import { StocksService } from '../stocks.service';
 })
 export class ViewStocksComponent {
     stocksService = inject(StocksService);
-    all_stocks : any[] = [];
-  
+    stock: any = {}
     constructor() {
       
-      this.stocksService.getAllPosts()
+      this.stocksService.getAppleStockInfo()
       .then(data => {
-        this.all_stocks = data;
+        this.stock = data;
+        return this.stock
       });
     }
 

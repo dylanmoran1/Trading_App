@@ -1,4 +1,17 @@
-<div *ngIf="all_stocks.length > 0; else loading">
+<div *ngIf="stock">
+  <b>Bellow is the Apple stock infromation:</b>
+  <p>Current Price: {{stock.c}}</p>
+  <p>Price Change: {{stock.d}}</p>
+  <p>Percentage Change: {{stock.dp}}</p>
+  <p>High Price: {{stock.h}}</p>
+  <p>Low Price: {{stock.l}}</p>
+  <p>Open Price: {{stock.o}}</p>
+  <p>Previous Close: {{stock.pc}}</p>
+  <p>Timestamp: {{stock.t}}</p>
+
+</div>
+
+<!-- <div *ngIf="all_stocks.length > 0; else loading">
     <ul>
       <li *ngFor="let stock of all_stocks">
         <strong>UserID:</strong> {{ stock.userId }}<br>
@@ -10,10 +23,10 @@
     </ul>
   </div>
   
-  <!-- Fallback template for empty/error states -->
+  Fallback template for empty/error states
   <ng-template #loading>
     <p *ngIf="all_stocks.length === 0; else error">No data available.</p>
     <ng-template #error><p>Error loading data.</p></ng-template>
-  </ng-template>
+  </ng-template> -->
   
 

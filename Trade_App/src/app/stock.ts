@@ -1,6 +1,11 @@
 export interface Stock {
-    "userId": number,
-    "id": number,
-    "title": string,
-    "body": string
+
+        "c": number,
+        "d": number,
+        "dp": number,
+        "h": number,
+        "l": number,
+        "o": number,
+        "pc": number,
+        "t": number
 }
