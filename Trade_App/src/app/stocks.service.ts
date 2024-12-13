@@ -9,9 +9,7 @@ import { Stock } from './stock';
 export class StocksService {
   url = 'https://jsonplaceholder.typicode.com/posts'
 
-
   constructor(
-    private http:HttpClient
   ) {}
 
   // public getAllUSStocks() {
@@ -22,9 +20,9 @@ export class StocksService {
     return await data.json() ?? [];
   }
 
-  async getPostById(id: number) {
-    const data = await fetch(`${this.url}/${id}`);
-    console.log(data.json())
-    return data ?? {};
+  async getPostById(id: number) : Promise<Stock> {
+    const data = await fetch(`${this.url}/${id}`)
+    
+    return await data.json() ?? {}
   }
 }
